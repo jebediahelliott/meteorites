@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import SearchBar from './SearchBar';
 import './App.css';
 
 function App() {
@@ -8,6 +8,9 @@ function App() {
       <header className="App-header">
         <h1>Meteorite Explorer</h1>
       </header>
+      <body className="App-body">
+        <SearchBar />
+      </body>
     </div>
   );
 }
