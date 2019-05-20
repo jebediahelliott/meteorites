@@ -7,9 +7,17 @@ import axios from 'axios';
 
 describe('<App />', () => {
   it('renders a title', () => {
-    const wrapper = shallow(<App />)
-    expect(wrapper.find('h1').text()).toEqual('Meteorite Explorer')
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('h1').text()).toEqual('Meteorite Explorer');
   });
+  it('renders a search bar', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('SearchBar').length).toEqual(1);
+  })
+  it('renders a list of meteorites', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('MeteoriteList').length).toEqual(1);
+  })
   it('fetches the meteorite list when it mounts', () => {
     const spy = jest.spyOn(axios, 'get');
     const wrapper = shallow(<App />);
