@@ -9,10 +9,21 @@ class SearchBar extends Component {
     }
   }
 
+  search = () => {
+    this.props.queryNASA(this.state.searchTerm);
+    this.setState({searchTerm: ''})
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
   render() {
     return (
       <div>
-        <input type="text" /><button>Search</button>
+        <input type="text" name='searchTerm' value={this.state.searchTerm} onChange={(event) => this.handleChange(event)} /><button onClick={this.search}>Search</button>
       </div>
     )
   }
