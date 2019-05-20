@@ -30,6 +30,6 @@ describe('<App />', () => {
     const instance = wrapper.instance();
     const searchTerm = 'aa'
     instance.queryNASA(searchTerm)
-    expect(spy).toHaveBeenCalledWith('https://data.nasa.gov/resource/gh4g-9sfh.json')
+    expect(spy).toHaveBeenLastCalledWith(`https://data.nasa.gov/resource/gh4g-9sfh.json?$where=name like '%25${searchTerm}%25'`)
   })
 });
