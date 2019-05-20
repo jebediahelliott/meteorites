@@ -13,7 +13,7 @@ class App extends Component {
 
   componentDidMount() {
     axios.get('https://data.nasa.gov/resource/gh4g-9sfh.json')
-    .then(resp => console.log(resp))
+    .then(resp => this.setState({meteorites: resp.data}));
   }
 
   render() {
