@@ -12,13 +12,12 @@ describe('<SearchBar />', () => {
     expect(wrapper.find('button').length).toEqual(1);
   });
   it('uses the search term to make a request to the API', () => {
-    const wrapper = shallow(<SearchBar />);
+    const queryNASA = jest.fn();
+    const wrapper = shallow(<SearchBar queryNASA={queryNASA}/>);
     const instance = wrapper.instance();
     const spy = jest.spyOn(instance, 'search');
-    const input = wrapper.find('input');
-    const button = wrapper.find('button');
-    input.simulate('change', {target: {value: 'search term'}})
-    button.simulate('click');
+    wrapper.find('input').simulate('change', {target: {value: 'search term'}})
+    wrapper.find('button').simulate('click');
     expect(spy).toHaveBeenCalled();
   })
 });
