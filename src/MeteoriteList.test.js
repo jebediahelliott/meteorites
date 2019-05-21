@@ -31,4 +31,8 @@ describe('<MeteoriteList />', () => {
     const wrapper = shallow(<MeteoriteList meteorites={meteorites} />)
     expect(wrapper.find('table').length).toEqual(1)
   })
+  it('displays a row for each meteorite', () => {
+    const wrapper = shallow(<MeteoriteList meteorites={meteorites} />)
+    expect(wrapper.find('tr').length).toEqual(meteorites.length + 1)
+  })
 })
