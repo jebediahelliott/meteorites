@@ -5,7 +5,7 @@ class MeteoriteList extends Component {
   rows = () => {
     return this.props.meteorites.map((meteorite) => {
       return (
-        <tr>
+        <tr key={meteorite.id}>
           <td>{meteorite.name}</td>
           <td>{meteorite.id}</td>
           <td>{meteorite.nametype}</td>
