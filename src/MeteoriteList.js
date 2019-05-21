@@ -22,7 +22,6 @@ class MeteoriteList extends Component {
   }
 
   render() {
-    console.log(this.props.meteorites.lenght);
     if (this.props.meteorites.length === 0) {
       return (
         <div className="noResult">

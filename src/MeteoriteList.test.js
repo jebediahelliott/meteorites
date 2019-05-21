@@ -41,4 +41,8 @@ describe('<MeteoriteList />', () => {
     wrapper.find('.year').forEach(node => years.push(node.text()));
     expect(years).toEqual(['1967', '1993'])
   })
+  it('shows error message when there are no search results', () => {
+    const wrapper = shallow(<MeteoriteList meteorites={[]} />)
+    expect(wrapper.find('p').text()).toEqual('Sorry, there were no results that match your search. Please try again.')
+  })
 })
