@@ -20,6 +20,7 @@ class App extends Component {
   queryNASA = (term) => {
     axios.get(`https://data.nasa.gov/resource/gh4g-9sfh.json?$where=name like '%25${term}%25'`)
     .then(resp => {
+      console.log(resp);
       this.setState({meteorites: resp.data})
     });
   }
@@ -36,7 +37,7 @@ class App extends Component {
         </header>
         <body className="App-body">
           <SearchBar queryNASA={this.queryNASA} />
-          <MeteoriteList />
+          <MeteoriteList meteorites={this.state.meteorites} />
         </body>
       </div>
     );
