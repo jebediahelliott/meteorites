@@ -40,4 +40,13 @@ describe('<App />', () => {
     instance.queryNASA(searchTerm)
     expect(spy).toHaveBeenLastCalledWith(`https://data.nasa.gov/resource/gh4g-9sfh.json?$where=lower(name) like '%25${searchTerm}%25'`)
   })
+  it('makes search case insensitive', () => {
+    const wrapper = shallow(<App />);
+    const spy = jest.spyOn(axios, 'get');
+    const instance = wrapper.instance();
+    const searchTerm = 'Yabba daBBa dOo'
+    instance.queryNASA(searchTerm)
+    expect(spy).toHaveBeenLastCalledWith(`https://data.nasa.gov/resource/gh4g-9sfh.json?$where=lower(name) like '%25${searchTerm.toLowerCase()}%25'`)
+
+  })
 });

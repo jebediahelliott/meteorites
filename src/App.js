@@ -20,7 +20,6 @@ class App extends Component {
   queryNASA = (term) => {
     axios.get(`https://data.nasa.gov/resource/gh4g-9sfh.json?$where=lower(name) like '%25${term.toLowerCase()}%25'`)
     .then(resp => {
-      console.log(resp);
       this.setState({meteorites: resp.data})
     });
   }
