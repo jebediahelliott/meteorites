@@ -3,6 +3,10 @@
   margin: auto;
 }
 
+.noResult {
+  color: red;
+}
+
 table {
   min-width: 100%;
   border-spacing: 0;
