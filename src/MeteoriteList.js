@@ -13,7 +13,7 @@ class MeteoriteList extends Component {
           <td>{meteorite.recclass}</td>
           <td>{meteorite.mass}</td>
           <td>{meteorite.fall}</td>
-          <td>{meteorite.year}</td>
+          <td className="year">{new Date(meteorite.year).getFullYear()}</td>
           <td>{meteorite.reclat}</td>
           <td>{meteorite.reclong}</td>
         </tr>

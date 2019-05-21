@@ -35,4 +35,10 @@ describe('<MeteoriteList />', () => {
     const wrapper = shallow(<MeteoriteList meteorites={meteorites} />)
     expect(wrapper.find('tr').length).toEqual(meteorites.length + 1)
   })
+  it('displays the year in a human readable format', () => {
+    const wrapper = shallow(<MeteoriteList meteorites={meteorites} />)
+    const years = [];
+    wrapper.find('.year').forEach(node => years.push(node.text()));
+    expect(years).toEqual(['1967', '1993'])
+  })
 })
