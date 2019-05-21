@@ -4,12 +4,13 @@
 }
 
 table {
+  min-width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
 }
 
 th, td {
-  padding: .25em;
+  padding: .75em;
 }
 tr#theader {
   background-color: rgb(245, 184, 113);
