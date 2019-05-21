@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './MeteoriteList.css'
 
 class MeteoriteList extends Component {
 
@@ -22,10 +23,10 @@ class MeteoriteList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="MeteoriteList">
         <table>
           <thead>
-            <tr>
+            <tr id="theader">
               <th>Name</th>
               <th>Id</th>
               <th>Name Type</th>
