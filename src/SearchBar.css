@@ -1,0 +1,16 @@
+.SearchBar {
+  margin: .5em auto;
+  padding: .25em;
+  max-width: 15%;
+  display: flex;
+  background-color: white;
+  justify-content: space-around;
+}
+
+input{
+  line-height: 2em;
+}
+
+button{
+  background-color: rgb(123, 135, 198);
+}
