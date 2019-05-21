@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
+import MeteoriteList from './MeteoriteList';
 import './App.css';
-import axios from 'axios'
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       meteorites: []
-    }
+    };
   }
 
   defaultRequest = () => {
@@ -24,7 +25,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.defaultRequest()
+    this.defaultRequest();
   }
 
   render() {
@@ -35,6 +36,7 @@ class App extends Component {
         </header>
         <body className="App-body">
           <SearchBar queryNASA={this.queryNASA} />
+          <MeteoriteList />
         </body>
       </div>
     );
