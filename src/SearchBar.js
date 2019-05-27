@@ -11,7 +11,7 @@ class SearchBar extends Component {
   }
 
   search = () => {
-    this.props.queryNASA(this.state.searchTerm);
+    this.props.queryNASA(this.state.searchTerm.trim());
     this.setState({searchTerm: ''})
   }
 
