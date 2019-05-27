@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './MeteoriteList.css'
-
+// 50693
+// new Date(meteorite.year).getFullYear()
 class MeteoriteList extends Component {
 
   rows = () => {
@@ -13,7 +14,7 @@ class MeteoriteList extends Component {
           <td>{meteorite.recclass}</td>
           <td>{meteorite.mass}</td>
           <td>{meteorite.fall}</td>
-          <td className="year">{new Date(meteorite.year).getFullYear()}</td>
+          <td className="year">{meteorite.year ? new Date(meteorite.year).getFullYear() : ''}</td>
           <td>{meteorite.reclat}</td>
           <td>{meteorite.reclong}</td>
         </tr>

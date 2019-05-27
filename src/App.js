@@ -39,10 +39,10 @@ class App extends Component {
         <header className="App-header">
           <h1>Meteorite Explorer</h1>
         </header>
-        <body className="App-body">
+        <div className="App-body">
           <SearchBar queryNASA={this.queryNASA} />
           <MeteoriteList meteorites={this.state.meteorites} />
-        </body>
+        </div>
       </div>
     );
   }
