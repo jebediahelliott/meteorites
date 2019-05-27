@@ -18,11 +18,11 @@ class App extends Component {
   }
 
   parseQuery = term => {
-    
+    return term.replace(/'/g, "''")
   }
 
   queryNASA = term => {
-    axios.get(`https://data.nasa.gov/resource/gh4g-9sfh.json?$where=lower(name) like '%25${term.toLowerCase()}%25'`)
+    axios.get(`https://data.nasa.gov/resource/gh4g-9sfh.json?$where=lower(name) like '%25${term.replace(/'/g, "''").toLowerCase()}%25'`)
     .then(resp => {
       this.setState({meteorites: resp.data})
     })
