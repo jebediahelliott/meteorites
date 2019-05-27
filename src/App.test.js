@@ -36,8 +36,14 @@ describe('<App />', () => {
     const wrapper = shallow(<App />);
     const spy = jest.spyOn(axios, 'get');
     const instance = wrapper.instance();
-    const searchTerm = "'adfaf@$%@%2454'"
-    expect(instance.parseQuery(searchTerm)).toEqual(`'${searchTerm}'`)
+    const searchTerm1 = "'adfaf@$%@%2454'"
+    const searchTerm2 = 'Yabba daBBa dOo'
+    const searchTerm3 = "'The k!t<|-|en $iNk'"
+    expect(instance.parseQuery(searchTerm1)).toEqual("''adfaf@$%@%2454''")
+    expect(instance.parseQuery(searchTerm2)).toEqual('yabba dabba doo')
+    expect(instance.parseQuery(searchTerm3)).toEqual("'the k!t<|-|en $ink'")
+
+
   })
   it('queries with a search term when a search term is given', () => {
     const wrapper = shallow(<App />);
@@ -45,15 +51,6 @@ describe('<App />', () => {
     const instance = wrapper.instance();
     const searchTerm = 'aa'
     instance.queryNASA(searchTerm)
-    expect(spy).toHaveBeenLastCalledWith(`https://data.nasa.gov/resource/gh4g-9sfh.json?$where=lower(name) like '%25${searchTerm}%25'`)
-  })
-  it('makes search case insensitive', () => {
-    const wrapper = shallow(<App />);
-    const spy = jest.spyOn(axios, 'get');
-    const instance = wrapper.instance();
-    const searchTerm = 'Yabba daBBa dOo'
-    instance.queryNASA(searchTerm)
-    expect(spy).toHaveBeenLastCalledWith(`https://data.nasa.gov/resource/gh4g-9sfh.json?$where=lower(name) like '%25${searchTerm.toLowerCase()}%25'`)
-
+    expect(spy).toHaveBeenLastCalledWith(`https://data.nasa.gov/resource/gh4g-9sfh.json?$where=lower(name) like '%25aa%25'`)
   })
 });
