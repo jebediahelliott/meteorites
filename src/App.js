@@ -17,11 +17,16 @@ class App extends Component {
     .then(resp => this.setState({meteorites: resp.data}));
   }
 
-  queryNASA = (term) => {
+  parseQuery = term => {
+    
+  }
+
+  queryNASA = term => {
     axios.get(`https://data.nasa.gov/resource/gh4g-9sfh.json?$where=lower(name) like '%25${term.toLowerCase()}%25'`)
     .then(resp => {
       this.setState({meteorites: resp.data})
-    });
+    })
+    .catch(res => console.log(res.message));
   }
 
   componentDidMount() {

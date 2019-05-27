@@ -32,6 +32,13 @@ describe('<App />', () => {
     await instance.componentDidMount()
     expect(wrapper.state('meteorites')).toEqual(42);
   });
+  it('parses user search term', () => {
+    const wrapper = shallow(<App />);
+    const spy = jest.spyOn(axios, 'get');
+    const instance = wrapper.instance();
+    const searchTerm = "'adfaf@$%@%2454'"
+    expect(instance.parseQuery(searchTerm)).toEqual(`'${searchTerm}'`)
+  })
   it('queries with a search term when a search term is given', () => {
     const wrapper = shallow(<App />);
     const spy = jest.spyOn(axios, 'get');
