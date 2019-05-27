@@ -41,7 +41,7 @@ describe('<App />', () => {
     const searchTerm3 = "'The k!t<|-|en $iNk'"
     expect(instance.parseQuery(searchTerm1)).toEqual("''adfaf@$%@%2454''")
     expect(instance.parseQuery(searchTerm2)).toEqual('yabba dabba doo')
-    expect(instance.parseQuery(searchTerm3)).toEqual("'the k!t<|-|en $ink'")
+    expect(instance.parseQuery(searchTerm3)).toEqual("''the k!t<|-|en $ink''")
 
 
   })
@@ -49,8 +49,8 @@ describe('<App />', () => {
     const wrapper = shallow(<App />);
     const spy = jest.spyOn(axios, 'get');
     const instance = wrapper.instance();
-    const searchTerm = 'aa'
+    const searchTerm = 'Meteorite'
     instance.queryNASA(searchTerm)
-    expect(spy).toHaveBeenLastCalledWith(`https://data.nasa.gov/resource/gh4g-9sfh.json?$where=lower(name) like '%25aa%25'`)
+    expect(spy).toHaveBeenLastCalledWith(`https://data.nasa.gov/resource/gh4g-9sfh.json?$where=lower(name) like '%25meteorite%25'`)
   })
 });
